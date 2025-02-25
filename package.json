@@ -1,0 +1,22 @@
+{
+    "name": "restaurant-order-tracker",
+    "version": "1.0.0",
+    "description": "Restaurant order tracking system with user and admin interfaces",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "dev": "nodemon server.js"
+    },
+    "dependencies": {
+      "express": "^4.18.2",
+      "mongoose": "^7.5.0",
+      "socket.io": "^4.7.2",
+      "dotenv": "^16.3.1",
+      "body-parser": "^1.20.2",
+      "cors": "^2.8.5",
+      "moment": "^2.29.4"
+    },
+    "devDependencies": {
+      "nodemon": "^3.0.1"
+    }
+  }

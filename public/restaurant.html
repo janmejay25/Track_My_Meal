@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/restaurant.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Restaurant Order Management</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="dashboard-header">
+      <div class="order-filters">
+        <button data-filter="all" class="filter-btn active">All Orders</button>
+        <button data-filter="received" class="filter-btn">New</button>
+        <button data-filter="preparing" class="filter-btn">Preparing</button>
+        <button data-filter="ready" class="filter-btn">Ready</button>
+        <button data-filter="completed" class="filter-btn">Completed</button>
+      </div>
+      <div class="dashboard-metrics">
+        <div class="metric-card">
+          <div class="metric-value" id="pending-count">0</div>
+          <div class="metric-label">Pending</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="ready-count">0</div>
+          <div class="metric-label">Ready</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="avg-time">0</div>
+          <div class="metric-label">Avg. Minutes</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="orders-container" id="orders-container">
+      <!-- Orders will be filled dynamically -->
+      <div class="loading">Loading orders...</div>
+    </div>
+  </main>
+
+  <div id="order-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Order Details</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div id="order-details-content"></div>
+      <div class="order-actions">
+        <h3>Update Order Status</h3>
+        <div class="status-buttons">
+          <button data-status="received" class="status-btn status-received">New</button>
+          <button data-status="preparing" class="status-btn status-preparing">Preparing</button>
+          <button data-status="ready" class="status-btn status-ready">Ready</button>
+          <button data-status="completed" class="status-btn status-completed">Completed</button>
+        </div>
+        <div class="time-update">
+          <h3>Update Estimated Ready Time</h3>
+          <div class="time-input-group">
+            <input type="datetime-local" id="time-update-input">
+            <button id="update-time-btn">Update Time</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="notification-sound" src="/sounds/notification.mp3"></audio>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/restaurant.js"></script>
+</body>
+</html>

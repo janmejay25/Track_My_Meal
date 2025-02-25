@@ -1,0 +1,251 @@
+/* Restaurant Dashboard Styles */
+.dashboard-header {
+    margin-bottom: 16px;
+  }
+  
+  .order-filters {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .filter-btn {
+    background-color: var(--light-grey);
+    color: var(--text);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  .filter-btn.active {
+    background-color: var(--primary);
+    color: white;
+  }
+  
+  .dashboard-metrics {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .metric-card {
+    flex: 1;
+    background-color: var(--white);
+    padding: 16px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .metric-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--primary);
+  }
+  
+  .metric-label {
+    font-size: 14px;
+    color: var(--text);
+  }
+  
+  .orders-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  
+  .order-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 16px;
+    position: relative;
+    border-left: 4px solid var(--light-grey);
+    transition: transform 0.2s;
+  }
+  
+  .order-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  .order-card.received {
+    border-left-color: var(--light-grey);
+  }
+  
+  .order-card.preparing {
+    border-left-color: var(--accent);
+  }
+  
+  .order-card.ready {
+    border-left-color: var(--secondary);
+  }
+  
+  .order-card.completed {
+    border-left-color: #00C853;
+    opacity: 0.7;
+  }
+  
+  .order-card.new {
+    animation: highlight 2s ease-in-out;
+  }
+  
+  @keyframes highlight {
+    0%, 100% {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    50% {
+      box-shadow: 0 2px 20px rgba(255,90,95,0.5);
+    }
+  }
+  
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .order-id {
+    font-weight: bold;
+  }
+  
+  .order-time {
+    font-size: 14px;
+    color: #767676;
+  }
+  
+  .order-customer {
+    margin-bottom: 8px;
+  }
+  
+  .order-items-preview {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #767676;
+  }
+  
+  .order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .order-total {
+    font-weight: bold;
+  }
+  
+  .order-view-btn {
+    background-color: transparent;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
+  
+  .order-view-btn:hover {
+    background-color: var(--secondary);
+    color: white;
+  }
+  
+  /* Order Details Modal */
+  .order-details-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  
+  .order-details-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .order-details-section {
+    margin-bottom: 24px;
+  }
+  
+  .order-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+  }
+  
+  .order-items-table th {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid var(--light-grey);
+  }
+  
+  .order-items-table td {
+    padding: 8px;
+    border-bottom: 1px solid var(--light-grey);
+  }
+  
+  .order-items-total {
+    text-align: right;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 8px;
+  }
+  
+  .status-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  
+  .status-btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .time-update {
+    margin-top: 16px;
+  }
+  
+  .time-input-group {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 32px;
+    color: #767676;
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .container {
+      padding: 8px;
+    }
+    
+    .orders-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .order-details-info {
+      grid-template-columns: 1fr;
+    }
+    
+    .time-input-group {
+      flex-direction: column;
+    }
+    
+    .status-buttons {
+      flex-direction: column;
+    }
+    
+    .status-btn {
+      width: 100%;
+    }
+  }

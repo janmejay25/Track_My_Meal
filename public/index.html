@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Order Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Restaurant Order Tracker</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>Track Your Order</h2>
+      <p>Enter your order ID or name to check your order status</p>
+      <form id="track-form">
+        <input type="text" id="order-id" placeholder="Order ID (e.g., ORD-12345)" required>
+        <button type="submit">Track Order</button>
+      </form>
+    </div>
+
+    <div class="card" id="place-order-card">
+      <h2>Place a New Order</h2>
+      <button id="new-order-btn">Order Now</button>
+    </div>
+
+    <div class="card status-card" id="status-container">
+      <div class="status-header">
+        <h2>Order <span id="order-id-display"></span></h2>
+        <span class="status-label" id="status-label"></span>
+      </div>
+
+      <div class="time-info">
+        <div class="time-display" id="time-display"></div>
+        <div class="time-label" id="time-label">Estimated Ready Time</div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+          <div class="progress-step" data-status="received"></div>
+          <div class="progress-step" data-status="preparing"></div>
+          <div class="progress-step" data-status="ready"></div>
+          <div class="progress-step" data-status="completed"></div>
+        </div>
+        <div class="progress-labels">
+          <span>Received</span>
+          <span>Preparing</span>
+          <span>Ready</span>
+          <span>Completed</span>
+        </div>
+      </div>
+
+      <div class="order-details" id="order-details">
+        <h3>Order Details</h3>
+        <div id="order-items-container"></div>
+        <div class="order-total">
+          <span>Total:</span>
+          <span id="order-total"></span>
+        </div>
+      </div>
+
+      <div class="pickup-info">
+        <h3>Pickup Information</h3>
+        <p>Optimal pickup time: <span id="optimal-pickup-time"></span></p>
+        <label for="travel-time">Update your travel time (minutes):</label>
+        <div class="travel-time-container">
+          <input type="number" id="travel-time" min="5" max="60" value="15">
+          <button id="update-travel-btn">Update</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/customer.js"></script>
+</body>
+</html>
